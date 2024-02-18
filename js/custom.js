@@ -29,6 +29,8 @@
 25. Mouse Cursor
 26. Scroll back to top
 27. Contact Form
+28. Our Team Slider
+
 
 ------------------------------------------------------------------- */
 
@@ -57,8 +59,8 @@
             navbar = $(".navbar"),
             logo = $(".navbar .logo> img");
         if (bodyScroll > 100) {
-            navbar.addClass("nav-scroll");
-            logo.attr('src', 'images/logo-light.png');
+            // navbar.addClass("nav-scroll");
+            // logo.attr('src', 'images/logo-light.png');
         } else {
             navbar.removeClass("nav-scroll");
             logo.attr('src', 'images/logo-light.png');
@@ -252,6 +254,8 @@
                 items: 3
             }
             , 1000: {
+                items: 3
+            }, 1500: {
                 items: 4
             }
         }
@@ -262,9 +266,9 @@
         loop:true,
         margin: 30,
         mouseDrag:true,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 7000,
-        dots: false,
+        dots: true,
         nav: false,
         navText: ['<i class="fa-light fa-angle-left" aria-hidden="true"></i>', '<i class="fa-light fa-angle-right" aria-hidden="true"></i>'],
         responsiveClass:true,
@@ -341,6 +345,7 @@
             return false;
         });
         $(".gallery-items").isotope({
+            filter: '.endosphere',
             itemSelector: '.single-item',
             layoutMode: 'masonry',
         });
@@ -629,3 +634,28 @@
     });
          
 }());
+
+//our team
+var infiniteSwiper = new Swiper ('.js-infinite-slider', {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    speed: 5000,
+    loop: true,
+    autoplay: {
+        delay: 0
+    },
+    breakpoints: {
+        400: {
+            slidesPerView: 3
+        },
+        550: {
+            slidesPerView: 4
+        },
+        768: {
+            slidesPerView: 5
+        },
+        1000: {
+            slidesPerView: 6
+        }
+    }
+});
