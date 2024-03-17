@@ -195,6 +195,7 @@ textarea {
     font-family: Montserrat;
 }
 input[type="password"]:focus,
+input[type="phone"]:focus,
 input[type="email"]:focus,
 input[type="text"]:focus,
 input[type="file"]:focus,
@@ -204,6 +205,7 @@ textarea:focus {
     outline: none;
 }
 input[type="password"],
+input[type="phone"],
 input[type="email"],
 input[type="text"],
 input[type="file"],
@@ -267,9 +269,9 @@ button.mfp-arrow:hover {
 }
 .alert-success {
     background: transparent;
-    color: #333333;
-    border: 2px solid #FE6483;
-    border-radius: 0px;
+    color: #25af13;
+    border: 2px solid rgba(194,74,85,0.2);
+    border-radius: 2px;
 }
 select {
     padding: 10px;
@@ -870,7 +872,10 @@ input[type="checkbox"] {
 }
 .nav-scroll .logo-wrapper {}
 .logo-wrapper {
-    float: left;
+    position: relative;
+    width: 170px;
+    display: flex;
+    justify-content: center;
 }
 .logo-wrapper .logo h2 {
     font-family: Ubuntu;
@@ -887,6 +892,8 @@ input[type="checkbox"] {
 }
 .logo {
     padding: 0;
+    position: fixed;
+    top: 28px;
 }
 .logo-img {
     width: 111px;
@@ -2382,6 +2389,9 @@ input[type="checkbox"] {
 }
 .team-single p a:hover {
     color: #0c0c0c;
+}
+.mainSection {
+    border-bottom: 16px solid var(--light-pink);
 }
 /* tabs */
 .team-single .con .simpl-bord.nav-tabs {
@@ -4958,7 +4968,7 @@ padding: 0px;
 }
 .about-sticky {
     position: sticky;
-    top: 150px;
+    top: 150px; 
     padding: 42px 28px;
 }
 .about-sticky div {
@@ -4966,7 +4976,7 @@ padding: 0px;
 }
 .about-sticky p {
     text-align: justify;
-    color: #a1a1a1; 
+    color: #b8b8b8; 
 }
 .about_1_img {
     position: absolute;
@@ -5322,13 +5332,13 @@ padding: 0px;
     gap: 12px;
     text-transform: uppercase;
     transition: 0.5s;
-    background-size: 200% auto;
+    background-size: 200% auto !important;
     color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
-    background-image: linear-gradient(to right, #FE6483 0%, #FA95A7 51%, #FE6483 100%);
+    background-image: linear-gradient(to right, #FE6483 0%, #FA95A7 51%, #FE6483 100%) !important;
 }
-.gradient-btn:hover { background-position: right center; }
+.gradient-btn:hover { background-position: right center; } 
 .gradient-btn svg {
     transform: rotate(0deg);
     transition: 0.5s;

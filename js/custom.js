@@ -701,39 +701,6 @@
         );
         return false;
     });
-
-    // Contact Form
-    var form = $('.contact__form'),
-        message = $('.contact__msg'),
-        form_data;
-    // success function
-    function done_func(response) {
-        message.fadeIn().removeClass('alert-danger').addClass('alert-success');
-        message.text(response);
-        setTimeout(function () {
-            message.fadeOut();
-        }, 2000);
-        form.find('input:not([type="submit"]), textarea').val('');
-    }
-    // fail function
-    function fail_func(data) {
-        message.fadeIn().removeClass('alert-success').addClass('alert-success');
-        message.text(data.responseText);
-        setTimeout(function () {
-            message.fadeOut();
-        }, 2000);
-    }
-    form.submit(function (e) {
-        e.preventDefault();
-        form_data = $(this).serialize();
-        $.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            data: form_data,
-        })
-            .done(done_func)
-            .fail(fail_func);
-    });
 })();
 
 //our team
@@ -777,6 +744,7 @@ gsap.from('.img_smooth_left', {
     ease: 'none',
     opacity: 0.5,
 });
+
 gsap.from('.img_smooth_right_bottom', {
     scrollTrigger: {
         trigger: '.img_smooth_right_bottom',
@@ -816,6 +784,20 @@ gsap.from('#title-block', {
     ease: 'none',
     opacity: 0.5,
 });
+gsap.from('.smoothShowTitle', {
+    scrollTrigger: {
+        trigger: '.smoothShowTitle',
+        scrub: true,
+        start: 'top bottom',
+        end: '+=50%',
+        marker: true,
+    },
+    translateX: '30%',
+    transformOrigin: 'left center',
+    ease: 'none',
+    opacity: 0,
+});
+
 gsap.from('#title-block-xl', {
     scrollTrigger: {
         trigger: '#services',
@@ -851,12 +833,13 @@ gsap.utils
                 trigger: itm,
                 scrub: true,
                 start: 'top bottom',
-                end: '-100% -150%',
+                end: 'bottom center',
             },
             transformOrigin: 'left center',
             ease: 'none',
-            opacity: 0,
+            opacity: 0.5,
             rotate: -20,
+            scale: '0.2',
             translateX: 40,
         });
     });
@@ -870,12 +853,12 @@ gsap.utils.toArray('.gigi-circle').forEach(function (container) {
             start: 'bottom bottom',
             end: 'top top',
         },
-        rotate: -360,
-        scale: 1.1,
+        rotate: 360,
+        scale: 1.2,
     });
 });
 gsap.utils.toArray('.itemShowFromBottom').forEach(function (container) {
-    let itm = container.querySelector('.service-img-wrapper');
+    let itm = container.querySelector('.img-wrapper-gsap');
     gsap.from(itm, {
         scrollTrigger: {
             trigger: itm,
@@ -888,17 +871,92 @@ gsap.utils.toArray('.itemShowFromBottom').forEach(function (container) {
     });
 });
 
-gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
-    let itm = container.querySelector('.service-item');
-    gsap.to(itm, {
+
+gsap.utils.toArray('.block-title').forEach(function (container) {
+    let itm = container.querySelector('h1');
+    gsap.from(itm, {
         scrollTrigger: {
             trigger: itm,
             scrub: true,
-            start: '40%',
+            start: 'top bottom',
             end: '+=50%',
         },
-        opacity: 0,
-        translateY: 100,
+        translateX: '-30%',
+        transformOrigin: 'left center',
+        ease: 'none',
+        opacity: 0.5,
+    });
+});
+
+//mobile gsap
+
+gsap.utils
+    .toArray('.img_smooth_left_mobile_wrapper')
+    .forEach(function (container) {
+        let itm = container.querySelector('img');
+        gsap.from(container, {
+            scrollTrigger: {
+                trigger: itm,
+                scrub: true,
+                start: 'top bottom',
+                end: '-80% top',
+            },
+            translateX: '-100%',
+            transformOrigin: 'left center',
+            ease: 'none',
+            opacity: 0.1,
+            rotate: 20,
+        });
+    });
+
+gsap.utils
+    .toArray('.img_smooth_right_mobile_wrapper')
+    .forEach(function (container) {
+        let itm = container.querySelector('img');
+        gsap.from(container, {
+            scrollTrigger: {
+                trigger: itm,
+                scrub: true,
+                start: 'top bottom',
+                end: '-80% top',
+            },
+            translateX: '100%',
+            transformOrigin: 'left center',
+            ease: 'none',
+            opacity: 0.1,
+            rotate: 20,
+        });
+    });
+
+let arrServicesContent = gsap.utils.toArray('.service-bottom');
+
+arrServicesContent.forEach(function (container) {
+    let itm = container.querySelector('a');
+    gsap.from(itm, {
+        scrollTrigger: {
+            trigger: itm,
+            scrub: true,
+            start: '-100% bottom',
+            end: '+=25%',
+        },
+        translateX: '100%',
+        opacity: '0.5',
+        transformOrigin: 'left center',
+        ease: 'none',
+    });
+});
+arrServicesContent.forEach(function (container) {
+    gsap.from(container, {
+        scrollTrigger: {
+            trigger: container,
+            scrub: true,
+            start: 'top bottom',
+            end: 'bottom bottom',
+        },
+        translateY: '10%',
+        opacity: '0',
+        transformOrigin: 'left center',
+        ease: 'none',
     });
 });
 
@@ -908,20 +966,86 @@ const split = new SplitText('.about-sticky p', {
     type: 'words',
 });
 
-const tl = gsap
-    .timeline({
-        scrollTrigger: {
-            trigger: '#about',
-            start: '-=30% top',
-            end: '+=120%',
-            scrub: 1,
-        },
-    })
-    .set(
-        split.words,
-        {
-            color: '#000',
-            stagger: 2,
-        },
-        2
-    );
+ScrollTrigger.matchMedia({
+    // desktop
+    '(min-width: 768px)': function () {
+        const tl = gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: '.about-sticky p',
+                    start: 'center bottom',
+                    end: 'bottom top',
+                    scrub: 1,
+                },
+            })
+            .set(
+                split.words,
+                {
+                    color: '#000',
+                    translateY: -10,
+                    stagger: 1,
+                },
+                2
+            );
+
+            
+            gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
+                let itm = container.querySelector('.service-item');
+                gsap.to(itm, {
+                    scrollTrigger: {
+                        trigger: itm,
+                        scrub: true,
+                        start: '50%',
+                        end: '+=50%',
+                    },
+                    opacity: 0,
+                    translateY: 100,
+                });
+            });
+    },
+
+    // mobile
+    '(max-width: 768px)': function () {
+        const tl = gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: '.about-sticky p',
+                    start: '20% bottom',
+                    end: 'top top',
+                    scrub: 1,
+                },
+            })
+            .set(
+                split.words,
+                {
+                    color: '#000',
+                    translateY: -10,
+                    stagger: 1,
+                },
+                1
+            );
+
+            gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
+                let itm = container.querySelector('.service-item');
+                gsap.to(itm, {
+                    scrollTrigger: {
+                        trigger: itm,
+                        scrub: true,
+                        start: 'center top',
+                        end: 'bottom top',
+                        
+                    },
+                    opacity: 0,
+                    translateY: -50,
+                    translateX: '100%',
+                    rotate: 10
+                });
+            });
+    },
+
+    // all
+    all: function () {
+        // ScrollTriggers created here aren't associated with a particular media query,
+        // so they persist.
+    },
+});
