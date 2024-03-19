@@ -63,7 +63,7 @@
             // logo.attr('src', 'images/logo-light.png');
         } else {
             navbar.removeClass('nav-scroll');
-            logo.attr('src', 'images/logo-light.png');
+            // logo.attr('src', 'images/logo-light.png');
         }
     });
 
@@ -824,6 +824,9 @@ gsap.from('.about-title-svg', {
     opacity: 0.5,
 });
 
+
+
+
 gsap.utils
     .toArray('.service-vertical-text-wrapper')
     .forEach(function (container) {
@@ -870,7 +873,6 @@ gsap.utils.toArray('.itemShowFromBottom').forEach(function (container) {
         translateY: 200,
     });
 });
-
 
 gsap.utils.toArray('.block-title').forEach(function (container) {
     let itm = container.querySelector('h1');
@@ -965,6 +967,220 @@ arrServicesContent.forEach(function (container) {
 const split = new SplitText('.about-sticky p', {
     type: 'words',
 });
+const splitMain = new SplitText('.main-text-wrapper p', {
+    type: 'words',
+});
+
+ScrollTrigger.matchMedia({
+    // desktop
+    '(min-width: 993px)': function () {
+        gsap.to('.women-img', {
+            scrollTrigger: {
+                trigger: '.women-img',
+                scrub: true,
+                start: 'top 15%',
+                end: 'bottom center',
+            },
+            translateY: 300,
+            ease: 'none',
+        });
+        let image = document.querySelector('.small-girl-img');
+        let container = document.querySelector('.small-img-container');
+        
+        gsap.to(image, {
+            y: () => 50,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: container,
+                scrub: true,
+                pin: false,
+                invalidateOnRefresh: true,
+            },
+        });
+        gsap.to('.small-img-container', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.small-img-container',
+                scrub: true,
+                start: 'top bottom',
+                end: 'bottom center',
+            },
+            rotate: 20,
+            scale: 1.1,
+        });
+        gsap.to('.fashion-circle-img', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.fashion-circle-img',
+                scrub: true,
+                start: 'top bottom',
+                end: 'bottom top',
+            },
+            rotate: 180,
+        });
+        gsap.to('.main-bg-logo', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.main-bg-logo',
+                scrub: true,
+                // markers: true,
+                start: '-30% top',
+                end: 'bottom top',
+            },
+            scale: 1.2,
+            opacity: 0.5,
+            translateY: -50,
+        });
+        gsap.from('.main-text-wrapper a', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.main-text-wrapper a',
+                scrub: true,
+                start: 'bottom bottom',
+                end: 'top center',
+            },
+            opacity: 0.7,
+            translateY: 50,
+        });
+        gsap.from('.main-bg-logo', {
+            ease: 'none',
+            duration: 1,
+            delay: .75,
+            scale: 0,
+            opacity: 0,
+            translateY: '100%'
+        });
+        gsap.from('.women-wrapper', {
+            ease: 'none',
+            opacity: 0,
+            duration: .75,
+            delay: 1.25,
+            opacity: 0,
+            translateY: 200
+        });
+        gsap.from('.navbar', {
+            ease: 'none',
+            opacity: 0,
+            duration: 0.75,
+            translateY: '-100%',
+        });
+        gsap.from('.logo', {
+            ease: 'none',
+            opacity: 0,
+            duration: 0.75,
+            delay: 1.25,
+            scale: 0,
+        });
+    },
+
+    // table
+    '(max-width: 993px)': function () {
+        gsap.to('.women-img', {
+            scrollTrigger: {
+                trigger: '.women-img',
+                scrub: true,
+                start: 'top top',
+                end: 'bottom center',
+                markers: 'true'
+            },
+            translateY: 300,
+            ease: 'none',
+        });
+        let image = document.querySelector('.small-girl-img');
+        let container = document.querySelector('.small-img-container');
+        
+        gsap.to(image, {
+            y: () => 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: container,
+                scrub: true,
+                pin: false,
+                invalidateOnRefresh: true,
+            },
+        });
+        gsap.to('.small-img-container', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.small-img-container',
+                scrub: true,
+                start: 'top bottom',
+                end: 'bottom center',
+            },
+            rotate: 20,
+            scale: 1.1,
+        });
+        gsap.to('.fashion-circle-img', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.fashion-circle-img',
+                scrub: true,
+                start: 'top bottom',
+                end: 'bottom top',
+            },
+            rotate: 180,
+        });
+        gsap.to('.main-bg-logo', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.main-bg-logo',
+                scrub: true,
+                // markers: true,
+                start: '-30% top',
+                end: 'bottom top',
+            },
+            scale: 1.2,
+            opacity: 0.5,
+            translateY: -50,
+        });
+        gsap.from('.main-text-wrapper a', {
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.main-text-wrapper a',
+                scrub: true,
+                start: 'bottom bottom',
+                end: 'top center',
+            },
+            opacity: 0.7,
+            translateY: 50,
+        });
+        gsap.from('.main-bg-logo', {
+            ease: 'none',
+            duration: 1,
+            delay: .75,
+            scale: 0,
+            opacity: 0,
+            translateY: '100%'
+        });
+        gsap.from('.women-wrapper', {
+            ease: 'none',
+            opacity: 0,
+            duration: .75,
+            delay: 1.25,
+            opacity: 0,
+            translateY: 200
+        });
+        gsap.from('.navbar', {
+            ease: 'none',
+            opacity: 0,
+            duration: 0.75,
+            translateY: '-100%',
+        });
+        gsap.from('.logo', {
+            ease: 'none',
+            opacity: 0,
+            duration: 0.75,
+            delay: 1.25,
+            scale: 0,
+        });
+    },
+
+    // all
+    all: function () {
+        // ScrollTriggers created here aren't associated with a particular media query,
+        // so they persist.
+    },
+});
 
 ScrollTrigger.matchMedia({
     // desktop
@@ -988,20 +1204,37 @@ ScrollTrigger.matchMedia({
                 2
             );
 
-            
-            gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
-                let itm = container.querySelector('.service-item');
-                gsap.to(itm, {
-                    scrollTrigger: {
-                        trigger: itm,
-                        scrub: true,
-                        start: '50%',
-                        end: '+=50%',
-                    },
-                    opacity: 0,
-                    translateY: 100,
-                });
+        const tlMain = gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: '.main-text-wrapper p',
+                    start: 'bottom bottom',
+                    end: 'top center',
+                    scrub: 1,
+                },
+            })
+            .set(
+                splitMain.words,
+                {
+                    color: '#333338',
+                    stagger: 0.1,
+                },
+                0.1
+            );
+
+        gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
+            let itm = container.querySelector('.service-item');
+            gsap.to(itm, {
+                scrollTrigger: {
+                    trigger: itm,
+                    scrub: true,
+                    start: '50%',
+                    end: '+=50%',
+                },
+                opacity: 0,
+                translateY: 100,
             });
+        });
     },
 
     // mobile
@@ -1025,22 +1258,21 @@ ScrollTrigger.matchMedia({
                 1
             );
 
-            gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
-                let itm = container.querySelector('.service-item');
-                gsap.to(itm, {
-                    scrollTrigger: {
-                        trigger: itm,
-                        scrub: true,
-                        start: 'center top',
-                        end: 'bottom top',
-                        
-                    },
-                    opacity: 0,
-                    translateY: -50,
-                    translateX: '100%',
-                    rotate: 10
-                });
+        gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
+            let itm = container.querySelector('.service-item');
+            gsap.to(itm, {
+                scrollTrigger: {
+                    trigger: itm,
+                    scrub: true,
+                    start: 'center top',
+                    end: 'bottom top',
+                },
+                opacity: 0,
+                translateY: -50,
+                translateX: '100%',
+                rotate: 10,
             });
+        });
     },
 
     // all

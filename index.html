@@ -81,6 +81,59 @@
         <div class="container-xxl">
             <div class="row">
                 <div class="col-md-12">
+                    <div class='main-content-wrapper'>
+                        <div class='main-images'>
+                            <img class='main-bg-logo' src="./images/logo-big.png" alt="">
+                            <div class='women-wrapper hideMobile'>
+                                <img src="./images/women.png" class='women-img' alt="">
+                            </div>
+                        </div>
+                        <div class='main-text-wrapper'>
+                            <p>
+                                Обрати GiGi — це обрати впевненість в собі та закохатись у своє тіло! 
+                            </p>
+                            <a class="gradient-btn" href='#' style='margin-bottom: 0;'>
+                                Бронювання
+                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.8583 0.416511C18.591 0.416597 19.1904 1.016 19.1904 1.74858L19.1904 17.5217C19.1904 18.2543 18.591 18.8537 17.8583 18.8538C17.1256 18.8537 16.5262 18.2538 16.5262 17.5217L16.5262 1.74858C16.5263 1.01655 17.1257 0.416568 17.8583 0.416511Z"
+                                        fill="white" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M19.2186 1.76788C19.2186 2.50055 18.6192 3.09995 17.8866 3.09995L2.11343 3.09996C1.38085 3.09995 0.781418 2.50053 0.781359 1.76788C0.781446 1.03521 1.38137 0.435813 2.11343 0.435813L17.8866 0.435811C18.6186 0.435811 19.2186 1.03524 19.2186 1.76788Z"
+                                        fill="white" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M18.1127 1.53037C18.6089 2.02769 18.6081 2.84048 18.1109 3.3367L2.98251 18.4442C2.48531 18.9405 1.67248 18.9396 1.17618 18.4425C0.67993 17.9452 0.681111 17.132 1.17794 16.6361L16.3063 1.52873C16.8031 1.03289 17.6164 1.0332 18.1127 1.53037Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class='mobileWomens'>
+                            <div class='women-wrapper showMobile'>
+                                <img src="./images/women.png" class='women-img' alt="">
+                            </div>
+                            <div class='small-girl-wrapper'>
+
+                                <div style='position: relative;'>
+                                    <div class='small-girl-pick'>
+                                        <svg width="41" height="35" viewBox="0 0 41 35" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M31.8134 21.7449L24.6583 17.5799L20.7868 3.13121L10.1213 5.98901L11.1566 9.85271L8.09476 8.08494L7.70653 6.63606C7.53399 5.99211 7.62449 5.36394 7.97804 4.75157C8.3316 4.1392 8.83035 3.74674 9.4743 3.57419L20.1397 0.7164C20.8105 0.536664 21.4436 0.618663 22.0389 0.962396C22.6343 1.30613 23.0219 1.81339 23.2016 2.48417L26.6525 15.3632L31.1664 19.3301L31.8134 21.7449ZM38.8627 31.6323L24.9312 23.589L22.1541 24.3331L24.4188 32.7849L23.5349 34.3159L22.004 33.432L19.7393 24.9801L9.87884 27.6222L9.23179 25.2074L11.1575 19.5151L9.93885 14.9672L0.549135 9.54601L1.81603 7.35168L40.1001 29.489L38.8627 31.6323ZM12.2503 24.3986L21.9096 21.8104L12.9791 16.6544L13.7879 19.673L12.2503 24.3986Z"
+                                                fill="#685539" />
+                                        </svg>
+
+                                    </div>
+                                    <div class='small-img-container'>
+                                        <img src="./images/small-girl.jpg" class='small-girl-img' alt="">
+                                    </div>
+
+                                    <img src="./images/fashion-circle.png" class='fashion-circle-img' alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -1207,10 +1260,9 @@
             document.body.style.paddingTop = navbar_height + 'px';
 
             if (el_autohide) {
-                var last_scroll_top = window.screen.height;
+                var last_scroll_top = 0;
                 window.addEventListener('scroll', function () {
                     let scroll_top = window.scrollY;
-                    console.log(scroll_top, last_scroll_top, window.screen.height);
                     if (scroll_top < last_scroll_top) {
                         el_autohide.classList.remove('scrolled-down');
                         el_autohide.classList.add('scrolled-up');
@@ -1219,7 +1271,7 @@
                         el_autohide.classList.remove('scrolled-up');
                         el_autohide.classList.add('scrolled-down');
                     }
-                    last_scroll_top = window.screen.height > scroll_top ? last_scroll_top : scroll_top;
+                    last_scroll_top = scroll_top;
                 });
                 // window.addEventListener
             }
