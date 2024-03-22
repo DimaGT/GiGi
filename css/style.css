@@ -5807,9 +5807,13 @@ padding: 0px;
 }
 .hideNonMobile {
     display: none;
+
 }
 .paddingLeftNonMobile {
     padding-left: 0;
+}
+.img_smooth_left_mobile_wrapper, .img_smooth_right_mobile_wrapper, .section-padding h1, .service-img-wrapper, .service-bottom {
+    transition: .3s;
 }
 @media (max-width: 768px) {
     
@@ -5826,6 +5830,7 @@ padding: 0px;
     }
     .showMobile768, .hideNonMobile { 
         display: block;
+        transition: .3s;
     }
     .hideMobile768, .section-hr{
         display: none;
