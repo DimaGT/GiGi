@@ -824,9 +824,6 @@ gsap.from('.about-title-svg', {
     opacity: 0.5,
 });
 
-
-
-
 gsap.utils
     .toArray('.service-vertical-text-wrapper')
     .forEach(function (container) {
@@ -930,6 +927,8 @@ gsap.utils
         });
     });
 
+
+
 let arrServicesContent = gsap.utils.toArray('.service-bottom');
 
 arrServicesContent.forEach(function (container) {
@@ -974,6 +973,42 @@ const splitMain = new SplitText('.main-text-wrapper p', {
 ScrollTrigger.matchMedia({
     // desktop
     '(min-width: 993px)': function () {
+        gsap.utils
+    .toArray('.element_feature')
+    .forEach(function (container, idx) {
+        console.log(idx);
+        gsap.from(container, {
+            scrollTrigger: {
+                trigger: container,
+                scrub: true,
+                start: 'top bottom',
+                end: 'center top',
+            },
+            translateY: '100',
+            transformOrigin: 'left center',
+            ease: 'none',
+            opacity: 0.8,
+            rotate: idx % 2 === 0 ? 30 : -30,
+        });
+    });
+
+        const tlMain = gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: '.main-text-wrapper p',
+                    start: 'bottom bottom',
+                    end: 'top center',
+                    scrub: 1,
+                },
+            })
+            .set(
+                splitMain.words,
+                {
+                    color: '#333338',
+                    stagger: 0.1,
+                },
+                0.1
+            );
         gsap.to('.women-img', {
             scrollTrigger: {
                 trigger: '.women-img',
@@ -986,7 +1021,7 @@ ScrollTrigger.matchMedia({
         });
         let image = document.querySelector('.small-girl-img');
         let container = document.querySelector('.small-img-container');
-        
+
         gsap.to(image, {
             y: () => 50,
             ease: 'none',
@@ -1023,7 +1058,6 @@ ScrollTrigger.matchMedia({
             scrollTrigger: {
                 trigger: '.main-bg-logo',
                 scrub: true,
-                // markers: true,
                 start: '-30% top',
                 end: 'bottom top',
             },
@@ -1045,18 +1079,18 @@ ScrollTrigger.matchMedia({
         gsap.from('.main-bg-logo', {
             ease: 'none',
             duration: 1,
-            delay: .75,
+            delay: 0.75,
             scale: 0,
             opacity: 0,
-            translateY: '100%'
+            translateY: '100%',
         });
         gsap.from('.women-wrapper', {
             ease: 'none',
             opacity: 0,
-            duration: .75,
+            duration: 0.75,
             delay: 1.25,
             opacity: 0,
-            translateY: 200
+            translateY: 200,
         });
         gsap.from('.navbar', {
             ease: 'none',
@@ -1075,20 +1109,61 @@ ScrollTrigger.matchMedia({
 
     // table
     '(max-width: 993px)': function () {
-        gsap.to('.women-img', {
+        gsap.utils
+    .toArray('.element_feature')
+    .forEach(function (container, idx) {
+        console.log(idx);
+        gsap.from(container, {
             scrollTrigger: {
-                trigger: '.women-img',
+                trigger: container,
                 scrub: true,
-                start: 'top top',
-                end: 'bottom center',
-                markers: 'true'
+                start: 'top bottom',
+                end: 'center top',
             },
-            translateY: 300,
+            translateY: '40',
+            transformOrigin: 'left center',
+            ease: 'none',
+            opacity: 0.8,
+            rotate: idx % 2 === 0 ? 30 : -30,
+        });
+    });
+
+        gsap.to('.women-wrapper', {
+            scrollTrigger: {
+                trigger: '.mobileWomens',
+                scrub: true,
+                start: 'top center',
+                end: 'bottom top',
+            },
+            translateY: 150,
             ease: 'none',
         });
+        gsap.to('.main-text-wrapper p', {
+            scrollTrigger: {
+                trigger: '.main-text-wrapper p',
+                scrub: true,
+                start: '-100% top',
+                end: 'bottom top',
+            },
+            translateX: '50%',
+            opacity: 0,
+            ease: 'none',
+        });
+        gsap.to('.main-text-wrapper a', {
+            scrollTrigger: {
+                trigger: '.main-text-wrapper a',
+                scrub: true,
+                start: '-200% top',
+                end: 'bottom top',
+            },
+            translateX: '-100%',
+            opacity: 0,
+            ease: 'none',
+        });
+        
         let image = document.querySelector('.small-girl-img');
         let container = document.querySelector('.small-img-container');
-        
+
         gsap.to(image, {
             y: () => 20,
             ease: 'none',
@@ -1102,12 +1177,12 @@ ScrollTrigger.matchMedia({
         gsap.to('.small-img-container', {
             ease: 'none',
             scrollTrigger: {
-                trigger: '.small-img-container',
+                trigger: '.mobileWomens',
                 scrub: true,
-                start: 'top bottom',
+                start: 'top center',
                 end: 'bottom center',
             },
-            rotate: 20,
+            rotate: 15,
             scale: 1.1,
         });
         gsap.to('.fashion-circle-img', {
@@ -1123,42 +1198,56 @@ ScrollTrigger.matchMedia({
         gsap.to('.main-bg-logo', {
             ease: 'none',
             scrollTrigger: {
-                trigger: '.main-bg-logo',
+                trigger: '.main-images',
                 scrub: true,
-                // markers: true,
-                start: '-30% top',
+                start: 'top top',
                 end: 'bottom top',
             },
-            scale: 1.2,
-            opacity: 0.5,
+            scale: 1.3,
+            opacity: 0.1,
             translateY: -50,
         });
-        gsap.from('.main-text-wrapper a', {
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.main-text-wrapper a',
-                scrub: true,
-                start: 'bottom bottom',
-                end: 'top center',
-            },
-            opacity: 0.7,
-            translateY: 50,
-        });
+        const tlMain = gsap
+            .timeline({
+                delay: 1.5,
+            })
+            .set(
+                splitMain.words,
+                {
+                    opacity: 1,
+                    stagger: 0.1,
+                },
+                0.1
+            );
         gsap.from('.main-bg-logo', {
             ease: 'none',
-            duration: 1,
-            delay: .75,
-            scale: 0,
+            duration: .5,
+            delay: 0.5,
             opacity: 0,
-            translateY: '100%'
+            translateX: '100%',
         });
+        gsap.from('.small-girl-wrapper', {
+            ease: 'none',
+            duration: 0.75,
+            delay: 1.5,
+            opacity: 0,
+            translateY: '100%',
+        });
+        gsap.from('.main-text-wrapper', {
+            ease: 'none',
+            duration: .5, 
+            delay: 0.75,
+            opacity: 0,
+            translateX: '-100%',
+        });
+
         gsap.from('.women-wrapper', {
             ease: 'none',
             opacity: 0,
-            duration: .75,
-            delay: 1.25,
+            duration: 0.75,
+            delay: 1,
             opacity: 0,
-            translateY: 200
+            translateY: 200,
         });
         gsap.from('.navbar', {
             ease: 'none',
@@ -1170,7 +1259,7 @@ ScrollTrigger.matchMedia({
             ease: 'none',
             opacity: 0,
             duration: 0.75,
-            delay: 1.25,
+            delay: 0.75,
             scale: 0,
         });
     },
@@ -1204,24 +1293,6 @@ ScrollTrigger.matchMedia({
                 2
             );
 
-        const tlMain = gsap
-            .timeline({
-                scrollTrigger: {
-                    trigger: '.main-text-wrapper p',
-                    start: 'bottom bottom',
-                    end: 'top center',
-                    scrub: 1,
-                },
-            })
-            .set(
-                splitMain.words,
-                {
-                    color: '#333338',
-                    stagger: 0.1,
-                },
-                0.1
-            );
-
         gsap.utils.toArray('.hideOpacityBottom').forEach(function (container) {
             let itm = container.querySelector('.service-item');
             gsap.to(itm, {
@@ -1242,9 +1313,9 @@ ScrollTrigger.matchMedia({
         const tl = gsap
             .timeline({
                 scrollTrigger: {
-                    trigger: '.about-sticky p',
-                    start: '20% bottom',
-                    end: 'top top',
+                    trigger: '.img_smooth_right_mobile_wrapper',
+                    start: 'bottom bottom',
+                    end: 'bottom center',
                     scrub: 1,
                 },
             })
