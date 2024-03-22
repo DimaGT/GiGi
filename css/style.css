@@ -762,7 +762,6 @@ input[type="checkbox"] {
     background: #fff;
     /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05); */
     border-bottom: 1px solid #E6E6F9;
-    transition: .3s
 }
 .navbar .container {
     border: none;
@@ -2646,11 +2645,14 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     z-index: 2;
+    
 }
 .women-wrapper img{
     max-width: 480px;
     width: 100%;
+    
 }
+
 
 @media screen and (max-width: 1400px) {
     .main-text-wrapper{
