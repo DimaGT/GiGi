@@ -427,21 +427,7 @@ gsap.utils.toArray('.itemShowFromBottom').forEach(function (container) {
     });
 });
 
-gsap.utils.toArray('.block-title').forEach(function (container) {
-    let itm = container.querySelector('h1');
-    gsap.from(itm, {
-        scrollTrigger: {
-            trigger: itm,
-            scrub: true,
-            start: 'top bottom',
-            end: '+=50%',
-        },
-        translateX: '-30%',
-        transformOrigin: 'left center',
-        ease: 'none',
-        opacity: 0.5,
-    });
-});
+
 
 //mobile gsap
 
@@ -554,6 +540,21 @@ ScrollTrigger.matchMedia({
     // desktop
     // desktop
     '(min-width: 993px)': function () {
+        gsap.utils.toArray('.block-title').forEach(function (container) {
+            let itm = container.querySelector('h1');
+            gsap.from(itm, {
+                scrollTrigger: {
+                    trigger: itm,
+                    scrub: true,
+                    start: 'top bottom',
+                    end: '+=50%',
+                },
+                translateX: '-30%',
+                transformOrigin: 'left center',
+                ease: 'none',
+                opacity: 0.5,
+            });
+        });
         gsap.utils
     .toArray('.element_feature')
     .forEach(function (container, idx) {
@@ -690,6 +691,21 @@ ScrollTrigger.matchMedia({
 
     // table
     '(max-width: 993px)': function () {
+        gsap.utils.toArray('.block-title').forEach(function (container) {
+            let itm = container.querySelector('h1');
+            gsap.from(itm, {
+                scrollTrigger: {
+                    trigger: itm,
+                    scrub: true,
+                    start: 'top bottom',
+                    end: '+=50%',
+                },
+                translateX: '-100%',
+                transformOrigin: 'left center',
+                ease: 'none',
+                opacity: 0.5,
+            });
+        });
         gsap.utils
     .toArray('.element_feature')
     .forEach(function (container, idx) {
@@ -825,10 +841,10 @@ ScrollTrigger.matchMedia({
         gsap.from('.women-wrapper', {
             ease: 'none',
             opacity: 0,
-            duration: 0.75,
+            duration: 0.70,
             delay: 1,
             opacity: 0,
-            translateY: 200,
+            translateY: 400,
         });
         gsap.from('.navbar', {
             ease: 'none',
@@ -923,3 +939,28 @@ ScrollTrigger.matchMedia({
         // so they persist.
     },
 });
+let tl = new TimelineMax({repeat: -1, repeatDelay: 0})
+const time = 2
+const xgap = 500
+// var tl = new TimelineMax()
+
+tl.to('.strong', time, {x: xgap, ease: 'none'})
+  .to('.linear', time, {x: xgap, ease: Linear.easeNone}, `-=${time}`)
+  .to('.power0', time, {x: xgap, ease: Power0.easeIn}, `-=${time}`)
+  .to('.power1', time, {x: xgap, ease: Power1.easeIn}, `-=${time}`)
+  .to('.power2', time, {x: xgap, ease: Power2.easeIn}, `-=${time}`)
+  .to('.power3', time, {x: xgap, ease: Power3.easeIn}, `-=${time}`)
+  .to('.power4', time, {x: xgap, ease: Power4.easeIn}, `-=${time}`)
+  .to('.quad', time, {x: xgap, ease: Quad.easeIn}, `-=${time}`)
+  .to('.cubic', time, {x: xgap, ease: Cubic.easeIn}, `-=${time}`)
+  .to('.quart', time, {x: xgap, ease: Quart.easeIn}, `-=${time}`)
+  .to('.quint', time, {x: xgap, ease: Quint.easeIn}, `-=${time}`)
+  .to('.elastic', time, {x: xgap, ease: Elastic.easeInOut}, `-=${time}`)
+  .to('.back', time, {x: xgap, ease: Back.easeInOut}, `-=${time}`)
+  .to('.bounce', time, {x: xgap, ease: Bounce.easeInOut}, `-=${time}`)
+  .to('.slowmo', time, {x: xgap, ease: SlowMo.easeInOut}, `-=${time}`)
+  .to('.steppedease', time, {x: xgap, ease: SteppedEase.easeInOut}, `-=${time}`)
+  .to('.circ', time, {x: xgap, ease: Circ.easeInOut}, `-=${time}`)
+  .to('.expo', time, {x: xgap, ease: Expo.easeInOut}, `-=${time}`)
+  .to('.sine', time, {x: xgap, ease: Sine.easeInOut}, `-=${time}`)
+  
