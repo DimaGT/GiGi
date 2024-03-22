@@ -755,7 +755,7 @@ ScrollTrigger.matchMedia({
                 start: '-200% top',
                 end: 'bottom top',
             },
-            translateX: '-100%',
+            translateX: '-80%',
             opacity: 0,
             ease: 'sine.inOut',
         });
@@ -846,7 +846,7 @@ ScrollTrigger.matchMedia({
             duration: 0.70,
             delay: 1,
             opacity: 0,
-            translateY: 400,
+            translateY: 200,
         });
         gsap.from('.navbar', {
             ease: 'sine.inOut',
