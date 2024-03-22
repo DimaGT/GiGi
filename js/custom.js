@@ -297,7 +297,7 @@ gsap.from('.img_smooth_left', {
     translateY: 300,
     translateX: -100,
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0.5,
 });
 
@@ -311,7 +311,7 @@ gsap.from('.img_smooth_right_bottom', {
     translateY: 200,
     translateX: 100,
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0.5,
 });
 gsap.from('.img_smooth_right_top', {
@@ -324,7 +324,7 @@ gsap.from('.img_smooth_right_top', {
     translateY: 150,
     translateX: 100,
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0.5,
 });
 gsap.from('#title-block', {
@@ -337,7 +337,7 @@ gsap.from('#title-block', {
     },
     translateY: 80,
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0.5,
 });
 gsap.from('.smoothShowTitle', {
@@ -350,7 +350,7 @@ gsap.from('.smoothShowTitle', {
     },
     translateX: '100%',
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0,
 });
 
@@ -363,7 +363,7 @@ gsap.from('#title-block-xl', {
     },
     translateX: '100%',
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0.5,
 });
 
@@ -376,7 +376,7 @@ gsap.from('.about-title-svg', {
     },
     translateY: 60,
     transformOrigin: 'left center',
-    ease: Power1.easeIn,
+    ease: 'sine.inOut',
     opacity: 0.5,
 });
 
@@ -392,7 +392,7 @@ gsap.utils
                 end: 'bottom center',
             },
             transformOrigin: 'left center',
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0.5,
             rotate: -20,
             scale: '0.2',
@@ -409,7 +409,7 @@ gsap.utils.toArray('.gigi-circle').forEach(function (container) {
             start: 'bottom bottom',
             end: 'top top',
         },
-        ease: Power1.easeIn,
+        ease: 'sine.inOut',
         rotate: 360,
         scale: 1.2,
     });
@@ -423,7 +423,7 @@ gsap.utils.toArray('.itemShowFromBottom').forEach(function (container) {
             start: 'top bottom',
             end: '+=50%',
         },
-        ease: Power1.easeIn,
+        ease: 'sine.inOut',
         opacity: 0,
         translateY: 200,
     });
@@ -446,7 +446,7 @@ gsap.utils
             },
             translateX: '-100%',
             transformOrigin: 'left center',
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0.1,
             rotate: 20,
         });
@@ -465,7 +465,7 @@ gsap.utils
             },
             translateX: '100%',
             transformOrigin: 'left center',
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0.1,
             rotate: 20,
         });
@@ -487,7 +487,7 @@ arrServicesContent.forEach(function (container) {
         translateX: '100%',
         opacity: '0.5',
         transformOrigin: 'left center',
-        ease: Power1.easeIn,
+        ease: 'sine.inOut',
     });
 });
 arrServicesContent.forEach(function (container) {
@@ -501,7 +501,7 @@ arrServicesContent.forEach(function (container) {
         translateY: '10%',
         opacity: '0',
         transformOrigin: 'left center',
-        ease: Power1.easeIn,
+        ease: 'sine.inOut',
     });
 });
 
@@ -553,7 +553,7 @@ ScrollTrigger.matchMedia({
                 },
                 translateX: '-30%',
                 transformOrigin: 'left center',
-                ease: Power1.easeIn,
+                ease: 'sine.inOut',
                 opacity: 0.5,
             });
         });
@@ -570,7 +570,7 @@ ScrollTrigger.matchMedia({
             },
             translateY: '100',
             transformOrigin: 'left center',
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0.8,
             rotate: idx % 2 === 0 ? 30 : -30,
         });
@@ -601,14 +601,14 @@ ScrollTrigger.matchMedia({
                 end: 'bottom center',
             },
             translateY: 300,
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
         });
         let image = document.querySelector('.small-girl-img');
         let container = document.querySelector('.small-img-container');
 
         gsap.to(image, {
             y: () => 50,
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: container,
                 scrub: true,
@@ -617,7 +617,7 @@ ScrollTrigger.matchMedia({
             },
         });
         gsap.to('.small-img-container', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.small-img-container',
                 scrub: true,
@@ -628,7 +628,7 @@ ScrollTrigger.matchMedia({
             scale: 1.1,
         });
         gsap.to('.fashion-circle-img', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.fashion-circle-img',
                 scrub: true,
@@ -638,7 +638,7 @@ ScrollTrigger.matchMedia({
             rotate: 180,
         });
         gsap.to('.main-bg-logo', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.main-bg-logo',
                 scrub: true,
@@ -650,7 +650,7 @@ ScrollTrigger.matchMedia({
             translateY: -50,
         });
         gsap.from('.main-text-wrapper a', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.main-text-wrapper a',
                 scrub: true,
@@ -661,7 +661,7 @@ ScrollTrigger.matchMedia({
             translateY: 50,
         });
         gsap.from('.main-bg-logo', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             duration: 1,
             delay: 0.75,
             scale: 0,
@@ -669,21 +669,21 @@ ScrollTrigger.matchMedia({
             translateY: '100%',
         });
         gsap.from('.women-wrapper', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0,
-            duration: 0.75,
+            duration: 0.85,
             delay: 1.25,
             opacity: 0,
             translateY: 200,
         });
         gsap.from('.navbar', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0,
             duration: 0.75,
             translateY: '-100%',
         });
         gsap.from('.logo', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0,
             duration: 0.75,
             delay: 1.25,
@@ -704,7 +704,7 @@ ScrollTrigger.matchMedia({
                 },
                 translateX: '-100%',
                 transformOrigin: 'left center',
-                ease: Power1.easeIn,
+                ease: 'sine.inOut',
                 opacity: 0.5,
             });
         });
@@ -721,7 +721,7 @@ ScrollTrigger.matchMedia({
             },
             translateY: '40',
             transformOrigin: 'left center',
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0.8,
             rotate: idx % 2 === 0 ? 30 : -30,
         });
@@ -735,7 +735,7 @@ ScrollTrigger.matchMedia({
                 end: 'bottom top',
             },
             translateY: 150,
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
         });
         gsap.to('.main-text-wrapper p', {
             scrollTrigger: {
@@ -746,7 +746,7 @@ ScrollTrigger.matchMedia({
             },
             translateX: '50%',
             opacity: 0,
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
         });
         gsap.to('.main-text-wrapper a', {
             scrollTrigger: {
@@ -757,7 +757,7 @@ ScrollTrigger.matchMedia({
             },
             translateX: '-100%',
             opacity: 0,
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
         });
         
         let image = document.querySelector('.small-girl-img');
@@ -765,7 +765,7 @@ ScrollTrigger.matchMedia({
 
         gsap.to(image, {
             y: () => 20,
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: container,
                 scrub: true,
@@ -774,7 +774,7 @@ ScrollTrigger.matchMedia({
             },
         });
         gsap.to('.small-img-container', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.mobileWomens',
                 scrub: true,
@@ -785,7 +785,7 @@ ScrollTrigger.matchMedia({
             scale: 1.1,
         });
         gsap.to('.fashion-circle-img', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.fashion-circle-img',
                 scrub: true,
@@ -795,7 +795,7 @@ ScrollTrigger.matchMedia({
             rotate: 180,
         });
         gsap.to('.main-bg-logo', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             scrollTrigger: {
                 trigger: '.main-images',
                 scrub: true,
@@ -819,21 +819,21 @@ ScrollTrigger.matchMedia({
                 0.1
             );
         gsap.from('.main-bg-logo', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             duration: .5,
             delay: 0.5,
             opacity: 0,
             translateX: '100%',
         });
         gsap.from('.small-girl-wrapper', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             duration: 0.75,
             delay: 1.5,
             opacity: 0,
             translateY: '100%',
         });
         gsap.from('.main-text-wrapper', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             duration: .5, 
             delay: 0.75,
             opacity: 0,
@@ -841,7 +841,7 @@ ScrollTrigger.matchMedia({
         });
 
         gsap.from('.women-wrapper', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0,
             duration: 0.70,
             delay: 1,
@@ -849,13 +849,13 @@ ScrollTrigger.matchMedia({
             translateY: 400,
         });
         gsap.from('.navbar', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0,
             duration: 0.75,
             translateY: '-100%',
         });
         gsap.from('.logo', {
-            ease: Power1.easeIn,
+            ease: 'sine.inOut',
             opacity: 0,
             duration: 0.75,
             delay: 0.75,
@@ -891,7 +891,7 @@ ScrollTrigger.matchMedia({
                     start: '50%',
                     end: '+=50%',
                 },
-                ease: Power1.easeIn,
+                ease: 'sine.inOut',
                 opacity: 0,
                 translateY: 100,
             });
@@ -928,7 +928,7 @@ ScrollTrigger.matchMedia({
                     start: 'center top',
                     end: 'bottom top',
                 },
-                ease: Power1.easeIn,
+                ease: 'sine.inOut',
                 opacity: 0,
                 translateY: -50,
                 translateX: '200%',

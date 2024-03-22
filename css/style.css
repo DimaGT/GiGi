@@ -5448,6 +5448,7 @@ padding: 0px;
 }
 .service-item {
     left: -18px;
+    transition: .3s;
 }
 .service-title {
     margin: 32px 0;
