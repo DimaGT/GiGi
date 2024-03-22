@@ -348,7 +348,7 @@ gsap.from('.smoothShowTitle', {
         end: '+=50%',
         marker: true,
     },
-    translateX: '30%',
+    translateX: '100%',
     transformOrigin: 'left center',
     ease: Power1.easeIn,
     opacity: 0,
@@ -931,7 +931,7 @@ ScrollTrigger.matchMedia({
                 ease: Power1.easeIn,
                 opacity: 0,
                 translateY: -50,
-                translateX: '100%',
+                translateX: '200%',
                 rotate: 10,
             });
         });
