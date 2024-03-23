@@ -840,7 +840,7 @@ ScrollTrigger.matchMedia({
             translateX: '-100%',
         });
 
-        gsap.from('.women-wrapper', {
+        gsap.from('.womm', {
             ease: 'sine.inOut',
             opacity: 0,
             duration: 0.70,
