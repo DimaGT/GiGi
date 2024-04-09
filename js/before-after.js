@@ -576,7 +576,7 @@
         });
       });
 
-      this.slider.addEventListener("touchstart", function(e) {
+      this.handle.addEventListener("touchstart", function(e) {
         e = e || window.event;
         e.preventDefault();
         e.stopPropagation();
