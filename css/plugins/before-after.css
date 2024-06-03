@@ -142,10 +142,13 @@ div.jx-image {
 	left: 0;
 	top: auto;
 }
+.single-item{
+	position: initial !important; 
+}
 div.jx-image img {
 	height: 100%;
 	width: auto;
-	z-index: 5;
+	z-index: 5; 
 	position: absolute;
 	margin-bottom: 0;
 

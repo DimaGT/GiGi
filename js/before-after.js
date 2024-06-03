@@ -432,12 +432,11 @@
     setWrapperDimensions: function() {
       var wrapperWidth = getComputedWidthAndHeight(this.wrapper).width;
       var wrapperHeight = getComputedWidthAndHeight(this.wrapper).height;
-      var dims = this.calculateDims(wrapperWidth, wrapperHeight);
+      var dims = this.calculateDims(wrapperWidth || 380, wrapperHeight);
       // if window is in iframe, make sure images don't overflow boundaries
       if (window.location !== window.parent.location && !this.options.makeResponsive) {
         dims = this.responsivizeIframe(dims);
       }
-
       this.wrapper.style.height = parseInt(dims.height) + "px";
       this.wrapper.style.width = parseInt(dims.width) + "px";
     },
@@ -712,7 +711,7 @@
       var elements = document.querySelectorAll('.juxtapose');
       for (var i = 0; i < elements.length; i++) {
       juxtapose.makeSlider(elements[i], i);
-    }
+    } 
   };
 
   juxtapose.JXSlider = JXSlider;
