@@ -83,7 +83,7 @@
                 });
             }
         });
-    }, 0)
+    }, 1000)
     
     // $('.gallery-items').imagesLoaded(function () {
     //     // Add isotope on click filter function
