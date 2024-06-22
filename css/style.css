@@ -1061,6 +1061,7 @@ input[type="checkbox"] {
     justify-content: center;
     min-height: 564px; 
     height: initial !important;
+    position: relative;
 }
 .itemBefore {
     display: none;

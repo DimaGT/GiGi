@@ -53,37 +53,7 @@
     $('.preloader-bg').delay(300).fadeOut(400);
     var wind = $(window);
 
-    const tabs = document.querySelector('.gallery-filter');
-    const tabButton = document.querySelectorAll('.tab-button');
-    const contents = document.querySelectorAll('.itemBefore');
     
-    
-    tabs.onclick = (e) => {
-        const id = e.target.dataset.id;
-        if (id) {
-            tabButton.forEach((btn) => {
-                btn.classList.remove('active');
-            });
-            e.target.classList.add('active');
-
-            contents.forEach((content) => {
-                content.classList.remove('active');
-            });
-            const element = document.getElementById(id);
-            element.classList.add('active');
-        }
-    };
-    setTimeout(()=>{
-        tabButton.forEach((el) => {
-            if(el.classList.contains("active")){
-                contents.forEach((content) => {
-                    if (content.id !== el.dataset.id) {
-                        content.classList.remove('active')
-                    }
-                });
-            }
-        });
-    }, 2000)
     
     // $('.gallery-items').imagesLoaded(function () {
     //     // Add isotope on click filter function
@@ -968,4 +938,38 @@ ScrollTrigger.matchMedia({
         // ScrollTriggers created here aren't associated with a particular media query,
         // so they persist.
     },
-});
+    
+}
+);
+const tabs = document.querySelector('.gallery-filter');
+    const tabButton = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.itemBefore');
+    
+    
+    tabs.onclick = (e) => {
+        const id = e.target.dataset.id;
+        if (id) {
+            tabButton.forEach((btn) => {
+                btn.classList.remove('active');
+            });
+            e.target.classList.add('active');
+
+            contents.forEach((content) => {
+                content.classList.remove('active');
+            });
+            const element = document.getElementById(id);
+            element.classList.add('active');
+        }
+    };
+    setTimeout(()=>{
+        tabButton.forEach((el) => {
+            if(el.classList.contains("active")){
+                contents.forEach((content) => {
+                    if (content.id !== el.dataset.id) {
+                        content.classList.remove('active')
+                        content.style.position = 'relative'
+                    }
+                });
+            }
+        });
+    }, 3000)
